@@ -2,5 +2,5 @@ version: 0.0
 os: linux
 files:
     - source: /
-      destination: /home/ubuntu/study_Docker/back/public
+      destination: /home/ubuntu/plannerService/back/views
       override: yes
