@@ -17,16 +17,13 @@ class SignUpPage extends Component {
     handleSubmit = async (e) => {
         const body = this.state
         e.preventDefault()
-        const res = await fetch(
-            `${process.env.REACT_APP_WEBSITE_BACK}/signup`,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(body),
-            }
-        )
+        const res = await fetch(`/signup`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        })
         if (res.success) {
         }
     }

@@ -33,7 +33,7 @@ const PlanningPage = () => {
         e.preventDefault()
         const planDate = dateObject.toString()
         const res = await axios.post(
-            `${process.env.REACT_APP_WEBSITE_BACK}/addPlans`,
+            `/addPlans`,
             {
                 startTime: start,
                 endTime: end,

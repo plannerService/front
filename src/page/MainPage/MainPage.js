@@ -12,7 +12,7 @@ const MainPage = () => {
     }, [])
 
     const getUser = async () => {
-        const response = await fetch(`${process.env.REACT_APP_WEBSITE_BACK}`, {
+        const response = await fetch(`/`, {
             // credentials 옵션 지정 안하면 프론트에서 접속해도 로그인 실패
             // credentials : 자격 증명을 포함하여 요청하게 해주는 옵션
             credentials: 'include',
@@ -24,7 +24,7 @@ const MainPage = () => {
 
     const handleClick = async (e) => {
         const response = await fetch(
-            `${process.env.REACT_APP_WEBSITE_BACK}/login`,
+            `/login`,
 
             {
                 credentials: 'include',

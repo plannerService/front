@@ -25,10 +25,7 @@ const LoginPage = () => {
     return (
         <>
             <h1>Login</h1>
-            <form
-                action={`${process.env.REACT_APP_WEBSITE_BACK}/login`}
-                method='post'
-            >
+            <form action={`/login`} method='post'>
                 <StyledInput
                     type='email'
                     placeholder='email'

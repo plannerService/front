@@ -6,7 +6,7 @@ const DeleteId = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const res = await axios.post(
-            `${process.env.REACT_APP_WEBSITE_BACK}/deleteId`,
+            `/deleteId`,
             {
                 password: password,
             },
