@@ -1,0 +1,10 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+/* 클래스 우선순위를 바꿔서 크기 적용
+.ScheduleSelector__Wrapper-sc-1ke4ka2-0 {
+    width: 50% !important;
+}
+*/
