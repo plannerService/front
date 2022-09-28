@@ -42,7 +42,7 @@ jobs:
               run: npm install
 
             - name: Build file
-              run: npm run build
+              run: CI='' npm run build
 
             - name: Zip file
               run: zip -r build.zip ./build ./appspec.yml
