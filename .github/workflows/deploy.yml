@@ -64,4 +64,3 @@ jobs:
                   --deployment-config-name CodeDeployDefault.OneAtATime
                   --deployment-group-name plannerService-Group
                   --s3-location bucket=psbucketjimin,bundleType=zip,key=plannerService/build.zip
-# test
