@@ -23,11 +23,11 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
 
-            # - name: Create env file
-            #   working-directory: ./
-            #   run: |
-            #       pwd
-            #       touch .env
+            - name: Create env file
+              working-directory: ./
+              run: |
+                  pwd
+                  touch .env
 
             - name: Cache node modules
               uses: actions/cache@v1

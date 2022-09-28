@@ -8,7 +8,6 @@ const Schedule = () => {
     const sheduleDate = '2021-07-15'
     const endTime = '03:00'
     const startTime = '01:00'
-    const { actions } = useContext(TimeContext)
 
     const end = moment
         .utc(sheduleDate)
