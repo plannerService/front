@@ -1,0 +1,67 @@
+name: deploy
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+jobs:
+    build:
+        runs-on: ubuntu-18.04
+
+        strategy:
+            matrix:
+                node-version: [16.15.1]
+
+        steps:
+            - name: Checkout source code.
+              uses: actions/checkout@v2
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            # - name: Create env file
+            #   working-directory: ./
+            #   run: |
+            #       pwd
+            #       touch .env
+
+            - name: Cache node modules
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.OS }}-build-
+                      ${{ runner.OS }}-
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Build file
+              run: npm run build
+
+            - name: Zip file
+              run: zip -r build.zip ./build ./appspec.yml
+
+            - name: AWS configure credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ap-northeast-2
+
+            - name: Upload to S3
+              run: |
+                  aws s3 cp --region ap-northeast-2 ./build.zip s3://psbucketjimin/plannerService/build.zip
+
+            - name: Deploy with AWS codeDeploy
+              run: aws deploy create-deployment
+                  --application-name plannerService
+                  --deployment-config-name CodeDeployDefault.OneAtATime
+                  --deployment-group-name plannerService-Group
+                  --s3-location bucket=psbucketjimin,bundleType=zip,key=plannerService/build.zip
+# test
