@@ -8,6 +8,6 @@ files:
       destination: /home/ubuntu/front_build
 hooks:
     ApplicationStop:
-        - location: script/applicationStop.sh
+        - location: scripts/applicationStop.sh
     AfterInstall:
-        - location: script/afterInstall.sh
+        - location: scripts/afterInstall.sh
