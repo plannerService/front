@@ -6,8 +6,8 @@ files:
       override: yes
     - source: /
       destination: /home/ubuntu/front_build
-hooks:
-    ApplicationStop:
-        - location: scripts/applicationStop.sh
-    AfterInstall:
-        - location: scripts/afterInstall.sh
+# hooks:
+#     ApplicationStop:
+#         - location: scripts/applicationStop.sh
+#     AfterInstall:
+#         - location: scripts/afterInstall.sh
