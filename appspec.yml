@@ -4,10 +4,10 @@ files:
     - source: /
       destination: /home/ubuntu/root/back/views
       override: yes
-    # - source: /
-    #   destination: /home/ubuntu/front_build
-# hooks:
-#     ApplicationStop:
-#         - location: scripts/applicationStop.sh
-#     AfterInstall:
-#         - location: scripts/afterInstall.sh
+    - source: /
+      destination: /home/ubuntu/front_build
+hooks:
+    ApplicationStop:
+        - location: scripts/applicationStop.sh
+    AfterInstall:
+        - location: scripts/afterInstall.sh
