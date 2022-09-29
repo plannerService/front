@@ -52,7 +52,7 @@ const MainPage = () => {
                     <div>
                         <Link to={'/login'}>로그인</Link>
                         <a href='!#'> / </a>
-                        <Link to={'/signup'}>회원가입</Link>
+                        <Link to={'/signup'}>회원 fds 가입</Link>
                     </div>
                 )}
             </div>
