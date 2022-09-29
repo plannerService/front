@@ -6,6 +6,7 @@ files:
       override: yes
     - source: /
       destination: /home/ubuntu/front_build
+      override: yes
 hooks:
     ApplicationStop:
         - location: scripts/applicationStop.sh
