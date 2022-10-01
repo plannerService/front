@@ -50,9 +50,9 @@ const MainPage = () => {
                     </div>
                 ) : (
                     <div>
-                        <Link to={'/login'}>로그인</Link>
+                        <Link to={'/login'}>로 그 인</Link>
                         <a href='!#'> / </a>
-                        <Link to={'/signup'}>회원가입</Link>
+                        <Link to={'/signup'}>회 원 가 입</Link>
                     </div>
                 )}
             </div>
